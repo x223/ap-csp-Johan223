@@ -5,6 +5,7 @@ var choice;
 var story;
 var storyStage = 0;
 var storyBranch;
+var img;  
 
 function setup() {
 
@@ -23,16 +24,20 @@ function setup() {
     // 📜 Create a place for the story
     story = createP("This is the story so far...do you want to turn left or right?");
     story.position(10, 10);
-
+  img = loadImage("Are-You-Serious-Right-Now-Reaction-By-Kanye-West_408x408.jpg");  // Load the image
+  image(img, 50, 50);
 }
 
 function draw() {
-
+ image(img, 0, 0);
+  // Displays the image at point (0, height/2) at half size
+  image(img, 0, height/2, img.width/2, img.height/2);
     background(bg);
     text(storyStage, 10, 60);
     text("Pick a character; Mario(right) or Mushroom(left)", 50,50);
     // 🗣 Call the choose() function, where the story happens
     if (storyBranch == "left" && storyStage == 1) {
+     
       text("you are a mushroom, what is Kanye's last name? East(left) or West(right)", 50, 75);
         bg = 'green'
     } else if (storyBranch == 'right' && storyStage ===1){
